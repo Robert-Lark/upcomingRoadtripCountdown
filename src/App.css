@@ -25,13 +25,14 @@ h2 {
 }
 @media only screen and (max-width: 600px){
   h2 {
-    color: white;
+    margin-top: -100px;
+    color: whitesmoke;
     font-size: 2rem;
     font-weight: bold;
     padding: 1rem;
   }
   .coming-soon {
-    color: white;
+    color: goldenrod;
     text-align: center;
     min-height: 100vh;
     display: flex;
