@@ -6,23 +6,31 @@ const initialState = ["-", "-", "-", "-"];
 
 function App() {
   const [time, setTime] = useState(initialState);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const countDate = new Date("June 3, 2021, 08:00:00").getTime();
-      const now = new Date().getTime();
-      const gap = countDate - now;
 
+  useEffect(() => {
+    //setInterval will run repeatedly in timed increments that you can set below
+
+    const interval = setInterval(() => {
+      //The date we want to count down to
+      const countDate = new Date("June 3, 2021, 08:00:00").getTime();
+      //the time we want to count down from
+      const now = new Date().getTime();
+      //the time between those two dates
+      const gap = countDate - now;
+      //establish our times
       const second = 1000;
       const minute = second * 60;
       const hour = minute * 60;
       const day = hour * 24;
-
+      //round them down to integers and store them in variables
       const textDay = Math.floor(gap / day);
       const textHour = Math.floor((gap % day) / hour);
       const textMinute = Math.floor((gap % hour) / minute);
       const textSecond = Math.floor((gap % minute) / second);
-
+      //set them to state
       setTime([textDay, textHour, textMinute, textSecond]);
+      //here we specify that we want this function to run 
+      //once ever 1000 miliseconds or once ever second
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -41,18 +49,22 @@ function App() {
           <div className="countdown">
             <div className="container-day">
               <h3 className="day">Day</h3>
+              {/* here we just pull the value from state */}
               <h4>{time[0]}</h4>
             </div>
             <div className="container-hour">
               <h3 className="hour">Hour</h3>
+              {/* here we just pull the value from state */}
               <h4>{time[1]}</h4>
             </div>
             <div className="container-Minute">
               <h3 className="minute">Minute</h3>
+              {/* here we just pull the value from state */}
               <h4>{time[2]}</h4>
             </div>
             <div className="container-second">
               <h3 className="second">Second</h3>
+              {/* here we just pull the value from state */}
               <h4>{time[3]}</h4>
             </div>
           </div>
